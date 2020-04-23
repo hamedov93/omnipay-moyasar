@@ -76,7 +76,7 @@ elseif ($payment->isAuthorized())
 elseif ($payment->isFailed())
 {
   // Payment failed
-  $error = $payment->getErrorMessage();
+  $error = $payment->getMessage();
   
 }
 ```
@@ -103,7 +103,7 @@ if ($payment->isSuccessful())
 elseif ($payment->isFailed())
 {
   // Payment failed
-  $error = $payment->getErrorMessage();  
+  $error = $payment->getMessage();  
 }
 ```
 ### Capture a previously authorized payment
@@ -116,7 +116,7 @@ $moyasar->setApiKey('You test or live api key');
 $payment = $moyasar->capture([
   'id' => $transactionId,
   'amount' => $amount, // Optional, defaults to total amount
-]);
+])->send();
 
 if ($payment->isCaptured())
 {
@@ -125,7 +125,7 @@ if ($payment->isCaptured())
 }
 elseif ($payment->hasError())
 {
-  $error = $payment->getErrorMessage();
+  $error = $payment->getMessage();
 }
 ```
 ### Void a payment
@@ -138,7 +138,7 @@ $moyasar->setApiKey('You test or live api key');
 
 $payment = $moyasar->void([
   'id' => $transactionId,
-]);
+])->send();
 
 if ($payment->isVoided())
 {
@@ -147,7 +147,7 @@ if ($payment->isVoided())
 }
 elseif ($payment->hasError())
 {
-  $error = $payment->getErrorMessage();
+  $error = $payment->getMessage();
   // You can fallback to the refund request here
 }
 ```
@@ -159,7 +159,7 @@ $moyasar->setApiKey('You test or live api key');
 $payment = $moyasar->refund([
   'id' => $transactionId,
   'amount' => $amount, // Optional
-]);
+])->send();
 
 if ($payment->isRefunded())
 {
@@ -169,9 +169,12 @@ if ($payment->isRefunded())
 elseif ($payment->hasError())
 {
   // Payment cannot be refunded
-  $error = $payment->getErrorMessage();
+  $error = $payment->getMessage();
 }
 ```
 ## TODO
 - Add update payment request.
 - Add list payments request.
+
+## License
+Released under the Mit license, see [LICENSE](https://github.com/hamedov93/omnipay-moyasar/blob/master/LICENSE)
