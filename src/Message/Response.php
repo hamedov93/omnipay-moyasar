@@ -103,7 +103,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         return isset($this->data['message']);
     }
 
-    public function getErrorMessage()
+    public function getMessage()
     {
         return isset($this->data['message']) ?
             $this->data['message'] :
