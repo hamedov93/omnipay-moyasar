@@ -1,0 +1,29 @@
+{
+    "name": "hamedov/omnipay-moyasar",
+    "type": "library",
+    "description": "Omnipay moyasar payment gateway",
+    "keywords": [
+        "omnipay",
+        "payment",
+        "gateway",
+        "moyasar",
+        "pay"
+    ],
+    "homepage": "https://github.com/hamedov93/omnipay-moyasar",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Hamed",
+            "email": "m.hamed@nezam.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Moyasar\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "^3.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "^3.0"
+    }
+}
