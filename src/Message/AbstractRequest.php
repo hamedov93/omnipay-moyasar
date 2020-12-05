@@ -100,10 +100,9 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 
     public function sendData($data)
     {
-        $method = strtolower($this->getHttpMethod());
+        $method = strtoupper($this->getHttpMethod());
     	$endpoint = $this->getEndpoint();
-    	if (! empty($data))
-    	{
+    	if (! empty($data)) {
     		$endpoint .= '?' . http_build_query($data);
     	}
 
